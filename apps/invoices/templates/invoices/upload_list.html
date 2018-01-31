@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Invoice Text File Upload Challenge</title>
+    </head>
+    <body>
+
+    {% if text_files %}
+        <ul>
+        {% for text_file in text_files %}
+            <li>
+                <a href="{{ text_file.file.url }}">{{ text_file.file.name }}</a> -
+                <a href="{% url 'invoices:income' text_file.slug %}">This file income</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No files.</p>
+    {% endif %}
+
+        <form action="{% url 'invoices:upload' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p>{{ form.non_field_errors }}</p>
+
+            <p>
+                {{ form.file.errors }}
+                <br/>
+                {{ form.title }}
+                <br/>
+                {{ form.file }}
+            </p>
+            <p><input type="submit" value="Upload" /></p>
+        </form>
+    </body>
+</html>
