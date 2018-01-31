@@ -35,3 +35,8 @@ Run the app
     $ pipenv --three && pipenv install && pipenv shell
 
 4. Run `. ./bin/start_development.sh`
+
+Hosted on Heroku
+================
+
+[Link](https://invoicer-challenge.herokuapp.com)
