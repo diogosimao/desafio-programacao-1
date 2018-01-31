@@ -32,7 +32,7 @@ Run the app
 
 3. Use `pipenv` to create a virtualenv, install its dependencies and activate the virtualenv.
 
-    $ pipenv --three && pipenv install && pipenv shell
+    $ pipenv --three && pipenv shell
 
 4. Run `. ./bin/start_development.sh`
 
