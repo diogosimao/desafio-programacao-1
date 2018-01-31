@@ -1,46 +1,37 @@
-# Desafio de programação 1
-A idéia deste desafio é nos permitir avaliar melhor as habilidades de candidatos à vagas de programador, de vários níveis.
+invoicer
+=====================================================
 
-Este desafio deve ser feito por você em sua casa. Gaste o tempo que você quiser, porém normalmente você não deve precisar de mais do que algumas horas.
+There are two options to setup and run the app. You can either choose to setup the Docker environment or run it via `pipenv` (virtualenv like system). In both options you must have the 'stack' installed. 
 
-## Instruções de entrega do desafio
-1. Primeiro, faça um fork deste projeto para sua conta no Github (crie uma se você não possuir).
-1. Em seguida, implemente o projeto tal qual descrito abaixo, em seu próprio fork.
-1. Por fim, empurre todas as suas alterações para o seu fork no Github e envie um pull request para este repositório original. Se você já entrou em contato com alguém da Myfreecomm sobre uma vaga, avise também essa pessoa por email, incluindo no email o seu usuário no Github.
+Stack
+=============
 
-## Instruções alternativas de entrega do desafio (caso você não queira que sua submissão seja pública)
-1. Faça um clone deste repositório.
-1. Em seguida, implemente o projeto tal qual descrito abaixo, em seu clone local.
-1. Por fim, envie via email um arquivo patch para seu contato na Myfreecomm.
+* pipenv
+* pip
+* Python 3.6
 
-## Descrição do projeto
-Você recebeu um arquivo de texto com os dados de vendas da empresa. Precisamos criar uma maneira para que estes dados sejam importados para um banco de dados.
+Docker setup requirements 
+=============================
 
-Sua tarefa é criar uma interface web que aceite upload de arquivos, normalize os dados e armazene-os em um banco de dados relacional.
+* Docker CE (lastest) installed
+    * Installation    
+        * Docker, see [here](https://docs.docker.com/installation/)
+    
+    * Used Docker images:
+        * Python 3.6
+        * Postgres
 
-Sua aplicação web DEVE:
+Run the app
+===========
 
-1. Aceitar (via um formulário) o upload de arquivos separados por TAB com as seguintes colunas: purchaser name, item description, item price, purchase count, merchant address, merchant name. Você pode assumir que as colunas estarão sempre nesta ordem, que sempre haverá dados em cada coluna, e que sempre haverá uma linha de cabeçalho. Um arquivo de exemplo chamado example_input.tab está incluído neste repositório.
-1. Interpretar ("parsear") o arquivo recebido, normalizar os dados, e salvar corretamente a informação em um banco de dados relacional.
-1. Exibir a receita bruta total representada pelo arquivo enviado após o upload + parser.
-1. Ser escrita obrigatoriamente em Ruby 2.0+ ou Python 2.7+ (caso esteja entrevistando para uma vaga específica, utilize a linguagem solicitada pela vaga).
-1. Ser simples de configurar e rodar, funcionando em ambiente compatível com Unix (Linux ou Mac OS X). Ela deve utilizar apenas linguagens e bibliotecas livres ou gratuitas.
+1. Git clone this [repo](https://github.com/diogosimao/desafio-programacao-1.git). Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed
+    
+    $ git clone https://github.com/diogosimao/desafio-programacao-1.git && cd desafio-programacao-1
 
-Sua aplicação web não precisa:
+2. Make sure you have `pipenv` installed via `pip`.
 
-1. Lidar com autenticação ou autorização (pontos extras se ela fizer, mais pontos extras se a autenticação for feita via OAuth).
-1. Ser escrita usando algum framework específico (mas não há nada errado em usá-los também, use o que achar melhor).
-1. Ter uma aparência bonita.
+3. Use `pipenv` to create a virtualenv, install its dependencies and activate the virtualenv.
 
-## Avaliação
-Seu projeto será avaliado de acordo com os seguintes critérios. 
+    $ pipenv --three && pipenv install && pipenv shell
 
-1. Sua aplicação preenche os requerimentos básicos?
-1. Você documentou a maneira de configurar o ambiente e rodar sua aplicação?
-1. Você seguiu as instruções de envio do desafio?
-
-Adicionalmente, tentaremos verificar a sua familiarização com as bibliotecas padrões (standard libs), bem como sua experiência com programação orientada a objetos a partir da estrutura de seu projeto.
-
-### Referência
-
-Este desafio foi baseado neste outro desafio: https://github.com/lschallenges/data-engineering
+4. Run `. ./bin/start_development.sh`
