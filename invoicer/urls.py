@@ -14,8 +14,23 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.conf import settings
+from django.conf.urls import url
+from django.conf.urls.static import static
+from django.views import generic
+
+invoices_patterns = ([
+                          url('', include('apps.invoices.urls')),
+                      ], 'invoices')
+
+media_patterns = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    url(r'^', include(media_patterns)),
+    url(r'^', include(invoices_patterns)),
+    url(r'^$', generic.RedirectView.as_view(url='/upload'), name="index"),
 ]
+
