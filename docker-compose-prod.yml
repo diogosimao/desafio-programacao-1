@@ -1,0 +1,38 @@
+dbdata:
+    image: postgres
+    command: "true"
+db:
+    extends: 
+        file: common.yml
+        service: db_base
+    volumes_from:
+        - dbdata
+invoicer_prod:
+    extends:
+        file: common.yml
+        service: invoicer_base
+    entrypoint: []
+    command: gunicorn -c /etc/gunicorn/gunicorn.conf.py invoicer.wsgi:application
+    volumes:
+        - "./:/src"
+        - "./staticfiles:/staticfiles"
+        - "./conf/gunicorn.conf.py:/etc/gunicorn/gunicorn.conf.py:ro"
+        - "./logs/gunicorn:/tmp/logs/gunicorn"
+        - "./logs/app:/tmp/logs/app"
+    links:
+        - db
+    environment:
+        DJANGO_SETTINGS_MODULE: invoicer.settings_prod
+        NUM_WORKERS: 4
+        DEBUG: ${DEBUG}
+        DATABASE_URL: ${DATABASE_URL}
+        HIDE_DOCS: ${HIDE_DOCS}
+nginxprod:
+    image: nginx
+    links:
+        - invoicer_prod
+    volumes:
+        - "./logs/nginx:/tmp/logs"
+        - "./conf/nginx.conf:/etc/nginx/nginx.conf:ro"
+    ports:
+        - "80:80"
