@@ -26,8 +26,7 @@ invoicer_prod:
         NUM_WORKERS: 4
         DEBUG: ${DEBUG}
         DATABASE_URL: ${DATABASE_URL}
-        HIDE_DOCS: ${HIDE_DOCS}
-nginxprod:
+  nginxprod:
     image: nginx
     links:
         - invoicer_prod

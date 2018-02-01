@@ -10,5 +10,5 @@ VOLUME ["/static"]
 WORKDIR /src
 EXPOSE 8000
 EXPOSE 80
-ENTRYPOINT ["python3", "manage.py"]
+ENTRYPOINT ["python", "manage.py"]
 CMD ["runserver", "0.0.0.0:8000"]

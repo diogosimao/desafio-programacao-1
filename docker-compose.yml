@@ -10,4 +10,3 @@ invoicer:
         DJANGO_SETTINGS_MODULE: invoicer.settings
         DEBUG: ${DEBUG}
         DATABASE_URL: ${DATABASE_URL}
-        HIDE_DOCS: ${HIDE_DOCS}

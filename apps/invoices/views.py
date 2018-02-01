@@ -41,5 +41,7 @@ def income_view(request, **kwargs):
     for item in invoices:
         income += item.item_price * item.purchase_count
 
-    return render(request, 'invoices/invoices_detail.html', {'income': income, 'invoices': invoices})
+    context = {'income': income, 'invoices': invoices}
+
+    return render(request, 'invoices/invoices_detail.html', context)
 

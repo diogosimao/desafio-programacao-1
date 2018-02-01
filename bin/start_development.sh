@@ -2,8 +2,7 @@
 #start development server on :8000
 
 export DEBUG=True
-export DATABASE_URL=sqlite:////tmp/invoicer-tmp-sqlite.db
-export HIDE_DOCS=False
+export DATABASE_URL=sqlite:////src/invoicer-tmp-sqlite.db
 
 read -n1 -p "Run the app on Docker [D] or pipenv [P]: " choice
 case $choice in

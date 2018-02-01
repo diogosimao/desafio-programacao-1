@@ -36,6 +36,10 @@ Run the app
 
 4. Run `. ./bin/start_development.sh`
 
+
+#### Note: lookup `./bin` directory  in order to get more options so that you can run the app.  
+
+
 Hosted on Heroku
 ================
 
