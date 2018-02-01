@@ -1,5 +1,6 @@
 #!/bin/bash
 # start production server
+./bin/build_prodcution.sh
 
 export DEBUG=True
 export DATABASE_URL=psql://django:django@db:5432/postgres
@@ -9,4 +10,4 @@ export DOCKER_CONFIG_PROD=${DOCKER_CONFIG_PROD:-docker-compose-prod.yml}
 docker-compose -f $DOCKER_CONFIG_PROD run --rm invoicer_prod python manage.py makemigrations
 docker-compose -f $DOCKER_CONFIG_PROD run --rm invoicer_prod python manage.py migrate
 docker-compose -f $DOCKER_CONFIG_PROD up -d
-echo "started"
+echo "started at http://localhost"
