@@ -1,6 +1,6 @@
 #!/bin/bash
 # start production server
-./bin/build_prodcution.sh
+./bin/build_production.sh
 
 export DEBUG=True
 export DATABASE_URL=psql://django:django@db:5432/postgres
