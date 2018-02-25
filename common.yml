@@ -2,7 +2,7 @@ db_base:
     image: postgres
     environment:
         POSTGRES_USER: django
-        POSTRES_PASSWORD: django123
+        POSTGRES_PASSWORD: django123
 invoicer_base:
     build: .
     environment:
